@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import profileImage from '/src/RafiProfile.jpeg';
 
 export function Hero() {
   return (
@@ -33,7 +34,7 @@ export function Hero() {
           </div>
           <div className="flex-1">
             <img 
-              src="/src/RafiProfile.jpeg" 
+              src={profileImage}
               alt="Profile" 
               className="rounded-full w-72 h-72 object-cover mx-auto border-8 border-white shadow-xl"
             />
