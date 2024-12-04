@@ -47,7 +47,7 @@ const projects = [
     description: 'MyFunUi is a playful and interactive web application built with HTML, CSS, and JavaScript.',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTxyr9ngdJ2JUV11US8VdnMxsftY032A2QYA&s',
     tech: ['Html', 'Css', 'JS'],
-    github: 'https://github.com/Mahamad-Rafi-Sogi/MyJwtAuthIntegration',
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MyFunUi',
     live: 'https://my-fun-ui.netlify.app/'
   }
 ];
