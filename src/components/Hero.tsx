@@ -33,7 +33,7 @@ export function Hero() {
           </div>
           <div className="flex-1">
             <img 
-              src="/src/assets/RafiProfile.jpeg" 
+              src="/src/assets/RafiProfile1.jpeg" 
               alt="Profile" 
               className="rounded-full w-72 h-72 object-cover mx-auto border-8 border-white shadow-xl"
             />
