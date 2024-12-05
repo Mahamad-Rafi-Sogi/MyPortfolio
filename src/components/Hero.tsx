@@ -36,7 +36,7 @@ export function Hero() {
             <img 
               src={profileImage}
               alt="Profile" 
-              className="rounded-full w-72 h-72 object-cover mx-auto border-8 border-white shadow-xl"
+              className="rounded-full w-72 h-72 object-cover mx-auto border-8 border-white shadow-xl transform transition-transform duration-300 hover:scale-150"
             />
           </div>
         </div>
