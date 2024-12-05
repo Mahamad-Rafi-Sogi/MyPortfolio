@@ -73,12 +73,12 @@ export function Projects() {
                 </div>
                 <div className="flex gap-4">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" 
-                     className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
+                     className="flex items-center gap-2 text-gray-600 hover:text-gray-900 hover:scale-110">
                     <Github className="w-4 h-4" />
                     Code
                   </a>
                   <a href={project.live} target="_blank" rel="noopener noreferrer"
-                     className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
+                     className="flex items-center gap-2 text-gray-600 hover:text-gray-900 hover:scale-110">
                     <ExternalLink className="w-4 h-4" />
                     Live Demo ( Reference )
                   </a>

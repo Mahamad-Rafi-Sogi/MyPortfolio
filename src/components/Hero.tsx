@@ -23,11 +23,11 @@ export function Hero() {
             <strong>Feel free to explore my portfolio and connect with me on social media!</strong>
             </p>
             <div className="flex gap-4">
-              <a href="https://mahamad-rafi-sogi-portfolio.netlify.app/" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              <a href="https://mahamad-rafi-sogi-portfolio.netlify.app/" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors hover:scale-110">
                 View My Resume
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors">
+              <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors hover:scale-110">
                 Contact Me
               </a>
             </div>

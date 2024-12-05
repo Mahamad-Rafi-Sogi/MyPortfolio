@@ -12,23 +12,23 @@ export function Footer() {
           </div>
           <div className="flex gap-6">
             <a href="https://github.com/Mahamad-Rafi-Sogi" target="_blank" rel="noopener noreferrer" 
-               className="text-gray-400 hover:text-white transition-colors">
+               className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Github className="w-6 h-6" />
             </a>
             <a href="https://www.linkedin.com/in/mdrafisogi/" target="_blank" rel="noopener noreferrer"
-               className="text-gray-400 hover:text-white transition-colors">
+               className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Linkedin className="w-6 h-6" />
             </a>
             <a href="https://www.instagram.com/al_buraq_whitebeast/"
-               className="text-gray-400 hover:text-white transition-colors">
+               className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Instagram className="w-6 h-6" />
             </a>
             <a href="https://x.com/MdRafiSogi"
-               className="text-gray-400 hover:text-white transition-colors">
+               className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Twitter className="w-6 h-6" />
             </a>
             <a href="mrafisogi@gmail.com"
-               className="text-gray-400 hover:text-white transition-colors">
+               className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Mail className="w-6 h-6" />
             </a>
           </div>
