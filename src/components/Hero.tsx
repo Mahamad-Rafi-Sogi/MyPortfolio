@@ -30,6 +30,13 @@ export function Hero() {
               <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors hover:scale-110">
                 Contact Me
               </a>
+              <a href="#" className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-600 transition-colors hover:scale-110" onClick={(e) => { e.preventDefault(); // Prevent default link behavior
+                    alert("I Am still working on the Payment Gateway. Stay tuned for updates!!!");
+                       }}
+                    >
+                TestPayment
+               <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
           <div className="flex-1">
