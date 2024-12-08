@@ -59,7 +59,7 @@ export const Carousel: React.FC = () => {
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index} className="slide">
-            <a href={slide.link} target="_blank" rel="noopener noreferrer">
+            <a target="_blank" rel="noopener noreferrer">
               {/* Render different content based on slide type */}
               {slide.type === "image" ? (
                 <img
