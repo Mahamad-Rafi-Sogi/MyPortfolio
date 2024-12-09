@@ -5,6 +5,12 @@ import profileImage from '/src/RafiProfile.jpeg';
 export function Hero() {
   return (
     <section id="about" className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
+      {/* Scrolling text in red color */}
+      <div className="overflow-hidden relative py-2 bg-gray-50">
+        <p className="text-red-600 font-bold text-lg inline-block whitespace-nowrap pl-full animate-scroll">
+          Currently seeking new job opportunities in Backend Development. Feel free to reach out!
+        </p>
+      </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">
@@ -50,4 +56,26 @@ export function Hero() {
       </div>
     </section>
   );
+}
+
+// Add the scroll animation using Tailwind's utilities
+// Tailwind allows custom animations using @keyframes, but here we are using utility-first approach
+
+if (typeof window !== 'undefined') {
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes scroll {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .animate-scroll {
+      animation: scroll 10s linear infinite;
+    }
+  `;
+  document.head.appendChild(style);
 }
