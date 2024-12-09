@@ -8,7 +8,7 @@ export function Hero() {
       {/* Scrolling text in red color */}
       <div className="overflow-hidden relative py-2 bg-gray-50">
         <p className="text-red-600 font-bold text-lg inline-block whitespace-nowrap pl-full animate-scroll">
-          Currently seeking new job opportunities in Backend Development. Feel free to reach out!
+          Currently seeking new job opportunities in Backend Development. Feel free to reach out!!!
         </p>
       </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -74,7 +74,7 @@ if (typeof window !== 'undefined') {
     }
 
     .animate-scroll {
-      animation: scroll 10s linear infinite;
+      animation: scroll 25s linear infinite;
     }
   `;
   document.head.appendChild(style);
