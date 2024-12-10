@@ -36,7 +36,7 @@ const projects = [
   },
   {
     title: 'MyConsul',
-    description: 'A Spring Boot application demonstrating integration with HashiCorp Consul for fetching configuration key-value pairs.',
+    description: 'MyConsul is a Spring Boot application demonstrating integration with HashiCorp Consul for fetching configuration key-value pairs.',
     image: 'https://www.devopsschool.com/blog/wp-content/uploads/2022/03/consul-by-hashicorp-vector-logo.png',
     tech: ['Java', 'SpringBoot', 'Consul'],
     github: 'https://github.com/Mahamad-Rafi-Sogi/MyConsul',
@@ -44,7 +44,7 @@ const projects = [
   },
   {
     title: 'MyResume',
-    description: 'This is a simple, static personal resume website built using HTML and CSS',
+    description: 'MyResume is a simple, static personal resume website built using HTML and CSS',
     image: 'https://images.ctfassets.net/wp1lcwdav1p1/5wmEECloDc1OMWAMEamsQ8/edb1da18b9ce2e661d227312c7d61805/GettyImages-1203940958.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive',
     tech: ['Html', 'Css', 'JS'],
     github: 'https://github.com/Mahamad-Rafi-Sogi/MyResume',
