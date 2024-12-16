@@ -3,6 +3,14 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
+    title: 'MyPaymentGateway',
+    description: 'MyPaymentGateway is a simple and lightweight payment gateway integration project that leverages a test payment key and secret for simulating real-world payment transactions. It uses a webhook to process and manage transaction updates, making it ideal for developers looking to test and integrate payment functionalities in their applications.',
+    image: 'https://corporate.payu.com/wp-content/uploads/2022/02/payment-gateway-generic_990x640.png',
+    tech: ['Java', 'SpringBoot', 'RazorPay', 'Webhook'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MyPaymentGateway',
+    live: 'https://razorpay.me/@mahamadrafisogi'
+  },
+  {
     title: 'MyApplication',
     description: 'MyApplication is a robust and scalable software solution comprising an API Gateway, Job Service, and Candidate Service. Built using Java and Spring WebFlux, it leverages MongoDB for efficient data management. The architecture is designed for high performance and responsiveness.',
     image: 'https://miro.medium.com/v2/resize:fit:688/1*i62PA8JWIWAgEpCAfejiYw.png',
