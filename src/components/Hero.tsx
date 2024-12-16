@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { ArrowRight } from 'lucide-react';
-import profileImage from '/src/RafiProfile.jpeg';
+import profileImage from '/src/RafiProfile2.jpeg';
+import hoverImage from '/src/RafiProfile.jpeg';
 
 export function Hero() {
+  const [image, setImage] = useState<string>(profileImage);
   return (
     <section id="about" className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
       {/* Scrolling text in red color */}
@@ -43,10 +45,12 @@ export function Hero() {
             </div>
           </div>
           <div className="flex-1">
-            <img 
-              src={profileImage}
+          <img 
+              src={image}
               alt="Profile" 
               className="rounded-full w-72 h-72 object-cover mx-auto border-8 border-white shadow-xl transform transition-transform duration-300 hover:scale-150"
+              onMouseEnter={() => setImage(hoverImage)} // Change image on hover
+              onMouseLeave={() => setImage(profileImage)} // Revert to original image on mouse leave
             />
           </div>
         </div>
