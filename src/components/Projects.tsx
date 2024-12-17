@@ -11,6 +11,14 @@ const projects = [
     live: 'https://razorpay.me/@mahamadrafisogi'
   },
   {
+    title: 'MyPortfolio',
+    description: 'In my portfolio, you’ll find a range of projects showcasing my expertise in backend development, API design, database management, and optimizing performance. I’m always exploring new technologies and tools to enhance my skills and deliver exceptional results.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4ci0j1CTtckEWHXHgMm5Dcid2qUfQPIBVaQ&s',
+    tech: ['React', 'TypeScript', 'Tailwind'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MyPortfolio',
+    live: 'https://mahamad-rafi-portfolio.netlify.app/'
+  },
+  {
     title: 'MyApplication',
     description: 'MyApplication is a robust and scalable software solution comprising an API Gateway, Job Service, and Candidate Service. Built using Java and Spring WebFlux, it leverages MongoDB for efficient data management. The architecture is designed for high performance and responsiveness.',
     image: 'https://miro.medium.com/v2/resize:fit:688/1*i62PA8JWIWAgEpCAfejiYw.png',
