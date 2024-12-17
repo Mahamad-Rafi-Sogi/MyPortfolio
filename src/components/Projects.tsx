@@ -65,6 +65,14 @@ const projects = [
     tech: ['Html', 'Css', 'JS'],
     github: 'https://github.com/Mahamad-Rafi-Sogi/MyFunUi',
     live: 'https://my-fun-ui.netlify.app/'
+  },
+  {
+    title: 'MyMultiLiftRealTimeAlgo',
+    description: 'This project demonstrates a multi-lift scheduling system designed to efficiently handle elevator requests in real-time. It simulates a real-world scenario where multiple elevators operate in a building, responding dynamically to user inputs and optimizing operations.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQdwCBiv_OFvU00T4RT1nwFCAuIb3ls1ZMBg&s',
+    tech: ['Java', 'Queue based'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MyMultiLiftRealTimeAlgo',
+    live: 'https://github.com/Mahamad-Rafi-Sogi/MyMultiLiftRealTimeAlgo/blob/main/README.md'
   }
 ];
 
