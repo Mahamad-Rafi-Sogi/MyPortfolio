@@ -1,11 +1,11 @@
 import React from "react";
-import Slider from "react-slick"; // Import the react-slick carousel library
-import "slick-carousel/slick/slick.css"; // Slick carousel styles
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 interface Slide {
-  type: "image" | "video" | "gif"; // Updated to support gif
-  source: string; // URL of the image, video, or gif
+  type: "image" | "video" | "gif";
+  source: string;
   title: string;
   description: string;
   link: string;
@@ -28,18 +28,25 @@ const slides: Slide[] = [
   },
   {
     type: "gif",
-    source: "https://media.tenor.com/WFPJQse3JI0AAAAi/coffee-morning.gif", // URL of the GIF
+    source: "https://media.tenor.com/WFPJQse3JI0AAAAi/coffee-morning.gif",
     title: "Chai / Coffee Lover",
     description: "Enjoys the perfect brew and connecting over a cup of coffee.",
     link: "https://example.com/product3",
   },
   {
     type: "gif",
-    source: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGl1N2VnYTY5NWFid3I4bjBuZWFhcjMxdmwya2swOGs4ZGhrY3EyYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1vlBgKjXEz1jTtsuiH/giphy.webp", // URL of the GIF
+    source: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGl1N2VnYTY5NWFid3I4bjBuZWFhcjMxdmwya2swOGs4ZGhrY3EyYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1vlBgKjXEz1jTtsuiH/giphy.webp",
     title: "DIY Projects",
     description: "Working on creative and hands-on projects at home.",
     link: "https://example.com/product3",
   },
+  {
+    type: "gif",
+    source: "https://media1.giphy.com/media/9BPi7RYeWwXJvq7FsZ/giphy.webp?cid=790b76117cdzdyvy4q93uvhg9cahpujrxut9f4t3ybo8hd9u&ep=v1_gifs_search&rid=giphy.webp&ct=g",
+    title: "Playing Chess",
+    description: "I enjoy playing chess in my free time, as it helps sharpen my strategic thinking and decision-making skills.",
+    link: "https://example.com/product3",
+  }
 ];
 
 export const Carousel: React.FC = () => {
@@ -65,7 +72,7 @@ export const Carousel: React.FC = () => {
                 <img
                   src={slide.source}
                   alt={slide.title}
-                  className="w-full h-[500px] object-cover" // Increased height
+                  className="w-full h-[500px] object-cover"
                 />
               ) : slide.type === "video" ? (
                 <iframe
@@ -81,7 +88,7 @@ export const Carousel: React.FC = () => {
                 <img
                   src={slide.source}
                   alt={slide.title}
-                  className="w-full h-[500px] object-cover" // For the gif, using the same height
+                  className="w-full h-[600px] object-cover"
                 />
               )}
               <h3 className="text-center text-lg font-semibold mt-4">
