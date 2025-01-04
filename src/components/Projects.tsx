@@ -81,6 +81,14 @@ const projects = [
     tech: ['Java', 'Queue based'],
     github: 'https://github.com/Mahamad-Rafi-Sogi/MyMultiLiftRealTimeAlgo',
     live: 'https://github.com/Mahamad-Rafi-Sogi/MyMultiLiftRealTimeAlgo/blob/main/README.md'
+  },
+  {
+    title: 'MyDsaPractice',
+    description: 'The MyDsaPractice project is a collection of algorithms and data structure problems designed to enhance problem-solving skills and understanding of computer science fundamentals. This project contains implementations of various algorithms, such as sorting, searching, dynamic programming, and graph traversal, using the most efficient approaches. It also includes hands-on practice problems from various sources, helping to strengthen theoretical concepts and improve coding efficiency.',
+    image: 'https://www.andromedaloans.com/wp-content/uploads/2024/07/Vital-Functions-of-DSA-Loan-Agents-3.jpg',
+    tech: ['Java', 'Dsa'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MyDsaPractice',
+    live: 'https://www.geeksforgeeks.org/dsa-tutorial-learn-data-structures-and-algorithms/'
   }
 ];
 
