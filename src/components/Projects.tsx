@@ -83,6 +83,22 @@ const projects = [
     live: 'https://github.com/Mahamad-Rafi-Sogi/MyMultiLiftRealTimeAlgo/blob/main/README.md'
   },
   {
+    title: 'MyRabbitMQIntegration',
+    description: 'MyRabbitMQIntegration is a project designed to demonstrate the integration of RabbitMQ with a microservices architecture, using Docker Compose to set up RabbitMQ and PostgreSQL along with producer and consumer microservices. The project highlights the use of RabbitMQ as a message broker for inter-service communication and processing in a distributed system, where producer services send messages and consumer services handle them asynchronously.',
+    image: 'https://media.licdn.com/dms/image/D4D12AQEZUrzhgTc1PA/article-cover_image-shrink_720_1280/0/1720634187233?e=2147483647&v=beta&t=wxgm_rh-xvn5YUTeoPDtmZFKvzU70kHF5plrdm4agns',
+    tech: ['Java', 'Spring Boot', 'RabbitMQ', 'PostgreSQL', 'Dockerfile'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MyRabbitMQIntegration',
+    live: 'https://www.rabbitmq.com/docs'
+  },
+  {
+    title: 'MySwaggerIntegration',
+    description: 'MySwaggerIntegration is a project that focuses on integrating Swagger (OpenAPI) with a backend service to provide comprehensive API documentation. This integration allows you to easily expose and document your RESTful APIs, making them more accessible and understandable for both developers and consumers.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png',
+    tech: ['Java', 'Springboot', 'H2 DataBase'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MySwaggerIntegration',
+    live: 'https://swagger.io/docs/'
+  },
+  {
     title: 'MyDsaPractice',
     description: 'The MyDsaPractice project is a collection of algorithms and data structure problems designed to enhance problem-solving skills and understanding of computer science fundamentals. This project contains implementations of various algorithms, such as sorting, searching, dynamic programming, and graph traversal, using the most efficient approaches. It also includes hands-on practice problems from various sources, helping to strengthen theoretical concepts and improve coding efficiency.',
     image: 'https://www.andromedaloans.com/wp-content/uploads/2024/07/Vital-Functions-of-DSA-Loan-Agents-3.jpg',
