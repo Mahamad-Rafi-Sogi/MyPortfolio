@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
@@ -117,12 +117,18 @@ const projects = [
 ];
 
 export function Projects() {
-  return (
+const [visibleCount, setVisibleCount] = useState(9);
+
+const loadMore = () => {
+    setVisibleCount(prev => Math.min(prev + 3, projects.length));
+};
+
+return (
     <section id="projects" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        {projects.slice(0, visibleCount).map((project, index) => (
             <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow hover:scale-110">
               <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
               <div className="p-6">
@@ -151,7 +157,17 @@ export function Projects() {
             </div>
           ))}
         </div>
-      </div>
+        {visibleCount < projects.length && (
+        <div className="text-center mt-12">
+            <button
+            onClick={loadMore}
+            className="px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 ease-in-out transform hover:scale-105"
+            >
+            Show More Projects...
+            </button>
+        </div>
+        )}
+    </div>
     </section>
-  );
+);
 }
