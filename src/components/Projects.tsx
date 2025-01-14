@@ -59,6 +59,30 @@ const projects = [
     live: 'https://developer.hashicorp.com/consul/docs'
   },
   {
+    title: 'MyRabbitMQIntegration',
+    description: 'MyRabbitMQIntegration is a project designed to demonstrate the integration of RabbitMQ with a microservices architecture, using Docker Compose to set up RabbitMQ and PostgreSQL along with producer and consumer microservices. The project highlights the use of RabbitMQ as a message broker for inter-service communication and processing in a distributed system, where producer services send messages and consumer services handle them asynchronously.',
+    image: 'https://media.licdn.com/dms/image/D4D12AQEZUrzhgTc1PA/article-cover_image-shrink_720_1280/0/1720634187233?e=2147483647&v=beta&t=wxgm_rh-xvn5YUTeoPDtmZFKvzU70kHF5plrdm4agns',
+    tech: ['Java', 'Spring Boot', 'RabbitMQ', 'PostgreSQL', 'Dockerfile'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MyRabbitMQIntegration',
+    live: 'https://www.rabbitmq.com/docs'
+  },
+  {
+    title: 'MySwaggerIntegration',
+    description: 'MySwaggerIntegration is a project that focuses on integrating Swagger (OpenAPI) with a backend service to provide comprehensive API documentation. This integration allows you to easily expose and document your RESTful APIs, making them more accessible and understandable for both developers and consumers.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png',
+    tech: ['Java', 'Springboot', 'H2 DataBase'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/MySwaggerIntegration',
+    live: 'https://swagger.io/docs/'
+  },
+  {
+    title: 'My-SpringBoot-Docker-Automator',
+    description: 'This project contains shell scripts to automate the creation of a Spring Boot project and a Dockerfile setup.',
+    image: 'https://bashlogo.com/img/logo/jpg/full_colored_light.jpg',
+    tech: ['Bash', 'Docker'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/My-SpringBoot-Docker-Automator',
+    live: 'https://github.com/Mahamad-Rafi-Sogi/My-SpringBoot-Docker-Automator'
+  },
+  {
     title: 'MyResume',
     description: 'MyResume is a simple, static personal resume website built using HTML and CSS',
     image: 'https://images.ctfassets.net/wp1lcwdav1p1/5wmEECloDc1OMWAMEamsQ8/edb1da18b9ce2e661d227312c7d61805/GettyImages-1203940958.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive',
@@ -81,22 +105,6 @@ const projects = [
     tech: ['Java', 'Queue based'],
     github: 'https://github.com/Mahamad-Rafi-Sogi/MyMultiLiftRealTimeAlgo',
     live: 'https://github.com/Mahamad-Rafi-Sogi/MyMultiLiftRealTimeAlgo/blob/main/README.md'
-  },
-  {
-    title: 'MyRabbitMQIntegration',
-    description: 'MyRabbitMQIntegration is a project designed to demonstrate the integration of RabbitMQ with a microservices architecture, using Docker Compose to set up RabbitMQ and PostgreSQL along with producer and consumer microservices. The project highlights the use of RabbitMQ as a message broker for inter-service communication and processing in a distributed system, where producer services send messages and consumer services handle them asynchronously.',
-    image: 'https://media.licdn.com/dms/image/D4D12AQEZUrzhgTc1PA/article-cover_image-shrink_720_1280/0/1720634187233?e=2147483647&v=beta&t=wxgm_rh-xvn5YUTeoPDtmZFKvzU70kHF5plrdm4agns',
-    tech: ['Java', 'Spring Boot', 'RabbitMQ', 'PostgreSQL', 'Dockerfile'],
-    github: 'https://github.com/Mahamad-Rafi-Sogi/MyRabbitMQIntegration',
-    live: 'https://www.rabbitmq.com/docs'
-  },
-  {
-    title: 'MySwaggerIntegration',
-    description: 'MySwaggerIntegration is a project that focuses on integrating Swagger (OpenAPI) with a backend service to provide comprehensive API documentation. This integration allows you to easily expose and document your RESTful APIs, making them more accessible and understandable for both developers and consumers.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png',
-    tech: ['Java', 'Springboot', 'H2 DataBase'],
-    github: 'https://github.com/Mahamad-Rafi-Sogi/MySwaggerIntegration',
-    live: 'https://swagger.io/docs/'
   },
   {
     title: 'MyDsaPractice',
