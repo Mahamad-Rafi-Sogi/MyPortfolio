@@ -21,14 +21,14 @@ const slides: Slide[] = [
   },
   {
     type: "gif",
-    source: "https://media1.tenor.com/m/Yb-_NNmJb2IAAAAC/kenzotgm.gif",
+    source: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDI5OHUzY2F2Z3puNTUydDIyMXdpZGhrYXl2Z2xldGdpY3F4aXcxYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kLT22uVf7dIMPWn7cb/giphy.gif",
     title: "Wanderlust",
     description: "A glimpse into my travel adventures and the beauty of nature.",
     link: "https://example.com/product2",
   },
   {
     type: "gif",
-    source: "https://media.tenor.com/WFPJQse3JI0AAAAi/coffee-morning.gif",
+    source: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2VtOXJreXoza2ZsdHQwbjAwcHJmbHVxZTdpaGd4aTM3dXE5aXdtNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lW5goaThIFAQLFk3in/giphy.gif",
     title: "Chai / Coffee Lover",
     description: "Enjoys the perfect brew and connecting over a cup of coffee.",
     link: "https://example.com/product3",
