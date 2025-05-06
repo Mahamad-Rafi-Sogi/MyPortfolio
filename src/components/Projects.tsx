@@ -122,31 +122,30 @@ const [visibleCount, setVisibleCount] = useState(9);
 const loadMore = () => {
     setVisibleCount(prev => Math.min(prev + 3, projects.length));
 };
-
 return (
-    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-gray-50">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Featured Projects</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 dark:text-darkText">Featured Projects</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {projects.slice(0, visibleCount).map((project, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transition-shadow sm:hover:shadow-xl sm:hover:scale-105 focus-within:shadow-xl">
+            <div key={index} className="bg-white dark:bg-darkCard rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 focus-within:shadow-xl">
               <img src={project.image} alt={project.title} className="w-full h-40 sm:h-48 object-cover" />
               <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 line-clamp-4 sm:line-clamp-6">{project.description}</p>
-                <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900 dark:text-darkText">{project.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 line-clamp-4 sm:line-clamp-6">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
-                    <span key={i} className="px-2 sm:px-3 py-1 bg-gray-100 rounded-full text-xs sm:text-sm">
+                    <span key={i} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-xs sm:text-sm">
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="flex flex-col sm:flex-row sm:gap-4 space-y-2 sm:space-y-0">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <a 
                     href={project.github} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 rounded-lg text-gray-800 text-sm sm:text-base hover:bg-gray-200 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
                   >
                     <Github className="w-4 h-4" />
                     Code
@@ -155,7 +154,7 @@ return (
                     href={project.live} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 rounded-lg text-gray-800 text-sm sm:text-base hover:bg-gray-200 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
@@ -169,7 +168,7 @@ return (
         <div className="text-center mt-8 sm:mt-12">
             <button
             onClick={loadMore}
-            className="px-5 sm:px-6 py-3 bg-pink-600 text-white text-sm sm:text-base rounded-lg hover:bg-pink-700 transition-colors duration-200 ease-in-out transform hover:scale-105 min-h-[44px] min-w-[200px]"
+            className="px-5 sm:px-6 py-3 bg-pink-600 dark:bg-pink-700 text-white text-sm sm:text-base rounded-lg hover:bg-pink-700 dark:hover:bg-pink-600 transition-all duration-300 transform hover:scale-105 min-h-[44px] min-w-[200px]"
             >
             Show More Projects...
             </button>

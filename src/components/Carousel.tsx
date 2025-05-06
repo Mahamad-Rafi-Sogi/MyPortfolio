@@ -61,46 +61,84 @@ export const Carousel: React.FC = () => {
   };
 
   return (
-    <div id="carousel" className="carousel-container py-20">
-      <h2 className="text-2xl font-bold text-center mb-6">Interests and Passions</h2>
-      <Slider {...settings}>
-        {slides.map((slide, index) => (
-          <div key={index} className="slide">
-            <a target="_blank" rel="noopener noreferrer">
-              {/* Render different content based on slide type */}
-              {slide.type === "image" ? (
-                <img
-                  src={slide.source}
-                  alt={slide.title}
-                  className="w-full h-[500px] object-cover"
-                />
-              ) : slide.type === "video" ? (
-                <iframe
-                  src={slide.source}
-                  width="100%"
-                  height="500px"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title={slide.title}
-                ></iframe>
-              ) : (
-                <img
-                  src={slide.source}
-                  alt={slide.title}
-                  className="w-full h-[600px] object-cover"
-                />
-              )}
-              <h3 className="text-center text-lg font-semibold mt-4">
-                {slide.title}
-              </h3>
-              <p className="text-center text-gray-600 mt-2">
-                {slide.description}
-              </p>
-            </a>
-          </div>
-        ))}
-      </Slider>
+    <div id="carousel" className="carousel-container py-20 bg-white dark:bg-darkBg transition-colors duration-300">
+      <h2 className="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-darkText">
+        Interests and Passions
+      </h2>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <Slider {...settings}>
+          {slides.map((slide, index) => (
+            <div key={index} className="slide px-4">
+              <div className="bg-white dark:bg-darkCard rounded-lg overflow-hidden transition-colors duration-300">
+                {slide.type === "image" ? (
+                  <img
+                    src={slide.source}
+                    alt={slide.title}
+                    className="w-full h-[500px] object-cover"
+                  />
+                ) : slide.type === "video" ? (
+                  <iframe
+                    src={slide.source}
+                    width="100%"
+                    height="500px"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={slide.title}
+                  ></iframe>
+                ) : (
+                  <img
+                    src={slide.source}
+                    alt={slide.title}
+                    className="w-full h-[600px] object-cover"
+                  />
+                )}
+                <div className="p-6">
+                  <h3 className="text-center text-lg font-semibold text-gray-900 dark:text-darkText">
+                    {slide.title}
+                  </h3>
+                  <p className="text-center text-gray-600 dark:text-gray-300 mt-2">
+                    {slide.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      <style jsx global>{`
+        /* Custom styles for slider dots and arrows in dark mode */
+        .slick-dots li button:before {
+          color: #718096;
+          opacity: 0.75;
+          transition: all 0.3s ease;
+        }
+        .slick-dots li.slick-active button:before {
+          color: #4A5568;
+          opacity: 1;
+        }
+        .dark .slick-dots li button:before {
+          color: #9CA3AF;
+        }
+        .dark .slick-dots li.slick-active button:before {
+          color: #D1D5DB;
+        }
+        .slick-prev:before,
+        .slick-next:before {
+          color: #4A5568;
+          opacity: 0.75;
+          transition: all 0.3s ease;
+        }
+        .dark .slick-prev:before,
+        .dark .slick-next:before {
+          color: #D1D5DB;
+        }
+        .slick-prev:hover:before,
+        .slick-next:hover:before {
+          opacity: 1;
+        }
+      `}</style>
     </div>
   );
 };
