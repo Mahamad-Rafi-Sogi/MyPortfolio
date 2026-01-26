@@ -5,6 +5,7 @@ import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Carousel } from "./components/Carousel";
+import { ChatAssistant } from './components/ChatAssistant';
 
 function App() {
   // Initialize theme from localStorage or system preference on mount
@@ -29,6 +30,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ChatAssistant />
     </div>
   );
 }
