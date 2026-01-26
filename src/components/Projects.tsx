@@ -3,6 +3,22 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
+    title: 'Basely-chat',
+    description: 'On-chain AI chatbot that leverages blockchain technology to provide secure and transparent interactions. Built using React for the frontend, Used sepabola for database, and integrates Gemini LLM for intelligent responses. The application ensures data integrity and user privacy through decentralized architecture.',
+    image: 'https://framerusercontent.com/images/g0YTRh7uRHpbWQgSZz62bO050.png?width=1378&height=880',
+    tech: ['React', 'Sepabola', 'Express', 'Gemini LLM'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/basely',
+    live: 'https://basely-chat.netlify.app/'
+  },
+  {
+    title: 'Rafi.ai',
+    description: 'My Own AI Chatbot named Rafi.ai built using React for the frontend. It integrates Gemini model to provide intelligent responses to user queries. The application features a user-friendly interface, allowing users to interact with the chatbot seamlessly. It also includes functionalities such as saving chat history and managing conversations.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcpF2xYGfO23IiDMr3Y94n5moK2wbCeFd4TQ&s',
+    tech: ['React', 'Express', 'Gemini LLM'],
+    github: 'https://github.com/Mahamad-Rafi-Sogi/Rafi.ai',
+    live: 'https://rafi-ai.netlify.app/'
+  },
+  {
     title: 'MyPaymentGateway',
     description: 'MyPaymentGateway is a simple and lightweight payment gateway integration project that leverages a test payment key and secret for simulating real-world payment transactions. It uses a webhook to process and manage transaction updates, making it ideal for developers looking to test and integrate payment functionalities in their applications.',
     image: 'https://corporate.payu.com/wp-content/uploads/2022/02/payment-gateway-generic_990x640.png',
@@ -45,7 +61,7 @@ const projects = [
   {
     title: 'MyJwtAuthIntegration',
     description: 'MyJwtAuthIntegration is a Spring Boot-based application designed to implement JWT (JSON Web Token) authentication.',
-    image: 'https://supertokens.com/static/b0172cabbcd583dd4ed222bdb83fc51a/9af93/jwt-structure.png',
+    image: 'https://cdn.prod.website-files.com/642bc0503c186417b1329fbc/6517b5bebcd16f92651813e7_SecOps%20Solution%20(49).jpg',
     tech: ['Java', 'SpringBoot'],
     github: 'https://github.com/Mahamad-Rafi-Sogi/MyJwtAuthIntegration',
     live: 'https://developer.box.com/guides/authentication/jwt/'

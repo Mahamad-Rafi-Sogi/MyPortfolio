@@ -32,7 +32,7 @@ export function Hero() {
               Backend Developer
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 text-center md:text-left transition-colors duration-300">
-              I craft robust and scalable backend systems with 4+ years of experience, ensuring seamless
+              I craft robust and scalable backend systems with 5+ years of experience, ensuring seamless
               functionality, reliability, and performance using modern
               technologies and best practices.
               <br />
