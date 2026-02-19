@@ -10,7 +10,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white/80 dark:bg-darkBg/90 backdrop-blur-sm z-50 transition-colors duration-200">
+    <header className="fixed top-0 w-full bg-white/80 dark:bg-darkBg/90 backdrop-blur-md z-50 transition-colors duration-200 border-b border-gray-200 dark:border-gray-700 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo/Brand */}
@@ -35,8 +35,9 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">About</a>
+            <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Skills</a>
+            <a href="#experience" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Experience</a>
             <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Projects</a>
-            <a href="#carousel" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Hobbies</a>
             <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Contact</a>
           </div>
           
@@ -81,8 +82,9 @@ export function Header() {
           <div className="md:hidden mt-4 pb-4">
             <div className="flex flex-col gap-4">
               <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">About</a>
+              <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Skills</a>
+              <a href="#experience" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Experience</a>
               <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Projects</a>
-              <a href="#carousel" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Hobbies</a>
               <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Contact</a>
               <div className="flex items-center gap-4 pt-2">
                 <a href="https://github.com/Mahamad-Rafi-Sogi" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">

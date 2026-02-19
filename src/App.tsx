@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { Stats } from './components/Stats';
+import { Skills } from './components/Skills';
+import { Experience } from './components/Experience';
+import { Certifications } from './components/Certifications';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Carousel } from "./components/Carousel";
 import { ChatAssistant } from './components/ChatAssistant';
+import { BackToTop } from './components/BackToTop';
+import { SnakeGame } from './components/SnakeGame';
 
 function App() {
   // Initialize theme from localStorage or system preference on mount
@@ -25,12 +31,18 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Stats />
+        <Skills />
+        <Experience />
+        <Certifications />
         <Projects />
         <Carousel />
         <Contact />
       </main>
       <Footer />
       <ChatAssistant />
+      <BackToTop />
+      <SnakeGame />
     </div>
   );
 }

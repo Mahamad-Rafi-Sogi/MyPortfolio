@@ -3,12 +3,12 @@ import { Github, Instagram, Linkedin, Mail, Twitter } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-12 border-t-4 border-blue-600">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <p className="text-lg font-semibold">Mahamad Rafi Sogi</p>
-            <p className="text-gray-400">Backend Developer</p>
+          <div className="mb-6 md:mb-0 text-center md:text-left">
+            <p className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Mahamad Rafi Sogi</p>
+            <p className="text-gray-400 mt-1">Backend Developer • Java • Spring Boot</p>
           </div>
           <div className="flex gap-6">
             <a href="https://github.com/Mahamad-Rafi-Sogi" target="_blank" rel="noopener noreferrer" 

@@ -78,9 +78,14 @@ export function ChatAssistant() {
     }
     
     // Location / Availability
-    if (message.includes('location') || message.includes('where') || message.includes('available') || 
-        message.includes('relocate')) {
+    if (message.includes('location') || message.includes('where') || message.includes('relocate')) {
       return "For location and availability details, please check the Contact section or reach out directly through the contact form. Rafi is open to discussing opportunities!";
+    }
+    
+    // Notice Period / Availability
+    if (message.includes('notice') || message.includes('join') || message.includes('start') || 
+        message.includes('available') || message.includes('when can') || message.includes('availability')) {
+      return "Rafi is immediately available to join! He has no notice period and can start right away. Feel free to reach out through the Contact section to discuss opportunities!";
     }
     
     // Thanks

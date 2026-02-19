@@ -12,11 +12,10 @@ export function Hero() {
       id="about"
       className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-darkBg transition-colors duration-300"
     >
-      {/* Scrolling text in red color */}
-      <div className="overflow-hidden relative py-2 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <p className="text-red-600 dark:text-red-400 font-bold text-sm sm:text-base md:text-lg inline-block whitespace-nowrap pl-full animate-scroll-mobile sm:animate-scroll">
-          Currently seeking new job opportunities in Backend Development. Feel
-          free to reach out!!!
+      {/* Announcement Banner */}
+      <div className="overflow-hidden relative py-3 bg-gradient-to-r from-blue-50 via-purple-50 to-blue-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 border-b-2 border-blue-200 dark:border-blue-900 transition-colors duration-300">
+        <p className="text-blue-700 dark:text-blue-300 font-semibold text-sm sm:text-base md:text-lg inline-block whitespace-nowrap pl-full animate-scroll-mobile sm:animate-scroll">
+          ✨ Open to Backend Development Opportunities • Immediate Availability • Let's Connect! ✨
         </p>
       </div>
 
@@ -50,24 +49,21 @@ export function Hero() {
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
               <a
-                href="https://mahamad-rafi-sogi-portfolio.netlify.app/"
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-blue-600 dark:bg-blue-700 text-white text-sm sm:text-base rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-300 hover:scale-105 sm:hover:scale-110 min-w-[120px]"
+                href="/Mahamad_Rafi_Sogi_Resume.pdf"
+                download="Mahamad_Rafi_Sogi_Resume.pdf"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-600 text-white text-sm sm:text-base rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 min-w-[140px] font-medium"
               >
-                View My Resume
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 text-sm sm:text-base rounded-lg hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 hover:scale-105 sm:hover:scale-110 min-w-[120px]"
-              >
-                Contact Me
+                Download Resume
+                <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="https://razorpay.me/@mahamadrafisogi"
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-purple-600 dark:bg-purple-700 text-white text-sm sm:text-base rounded-lg hover:bg-purple-700 dark:hover:bg-purple-600 transition-all duration-300 hover:scale-105 sm:hover:scale-110 min-w-[120px]"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 dark:from-purple-700 dark:to-purple-600 text-white text-sm sm:text-base rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 min-w-[140px] font-medium"
               >
-                TestPayment
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                Test Payment
+                <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
