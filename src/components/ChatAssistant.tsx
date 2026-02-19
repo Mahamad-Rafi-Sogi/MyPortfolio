@@ -37,69 +37,106 @@ export function ChatAssistant() {
     // Greetings
     if (message.match(/^(hello|hi|hey|greetings|good morning|good afternoon|good evening)$/i) || 
         message.includes('hello') || message.includes('hi ') || message.includes('hey ')) {
-      return "Hello! 👋 I'm here to help you learn more about Rafi. Feel free to ask about his skills, projects, or experience!";
+      return "Hello! 👋 I'm here to help you learn more about Rafi. Feel free to ask about his skills, experience, notice period, salary expectations, or anything else!";
     }
     
     // Who is Rafi / About
     if (message.includes('who') && (message.includes('rafi') || message.includes('he') || message.includes('you'))) {
-      return "Rafi is Mahamad Rafi Sogi, a skilled Backend Developer specializing in Java, Spring Boot, Python, and cloud technologies. He's passionate about building scalable applications and currently seeking new opportunities in Backend Development. Feel free to ask about his specific skills or projects!";
+      return "Rafi is Mahamad Rafi Sogi, a skilled Backend Developer with 5+ years of experience in Java, Spring Boot, Microservices, and Cloud technologies. He's GCP certified and has worked with companies like Coforge and Lenskart. Currently seeking new opportunities in Backend Development!";
+    }
+    
+    // Experience / Years
+    if (message.includes('experience') || message.includes('years') || message.includes('work history') || 
+        message.includes('career') || message.includes('background') || message.includes('how long')) {
+      return "Rafi has 5+ years of professional experience:\n\n🏢 Coforge (March 2025 - Present)\n• Senior Software Engineer\n• Working on enterprise solutions\n\n🏢 Lenskart (March 2021 - March 2025)\n• 4 years as Software Engineer\n• Built scalable microservices\n• Worked with Java, Spring Boot, GCP\n• Optimized systems for better performance\n\nHe specializes in Backend Development, Microservices, and Cloud Architecture.";
     }
     
     // Skills
     if (message.includes('skill') || message.includes('technology') || message.includes('tech stack') || 
         message.includes('what does he know') || message.includes('what can he do') || 
         message.includes('expertise') || message.includes('programming')) {
-      return "Rafi specializes in Backend Development with expertise in:\n• Java & Spring Boot\n• Python\n• SQL & Databases\n• AWS Cloud Services\n• Docker & Containerization\n• RESTful APIs\n• Microservices Architecture";
+      return "Rafi's Technical Skills:\n\n💻 Languages: Java (95%), Python, SQL\n🚀 Frameworks: Spring Boot, Microservices\n☁️ Cloud: GCP (88%), AWS\n🗄️ Databases: SQL, NoSQL, PostgreSQL\n🐳 DevOps: Docker, Kubernetes, CI/CD\n📊 Monitoring: ELK, Prometheus, Grafana\n🎯 Design Patterns: Singleton, Factory, Circuit Breaker, Saga\n\nHe's also GCP certified (ACE, PCD, Gen AI Leader)!";
+    }
+    
+    // Certifications
+    if (message.includes('certif') || message.includes('credential') || message.includes('gcp') || 
+        message.includes('google cloud')) {
+      return "Rafi holds 3 Google Cloud certifications:\n\n🎓 GCP Associate Cloud Engineer\n🎓 GCP Professional Cloud Developer\n🎓 GCP Generative AI Leader\n\nThese validate his expertise in cloud architecture, development, and AI technologies!";
     }
     
     // Projects
     if (message.includes('project') || message.includes('portfolio') || message.includes('work sample') || 
         message.includes('what has he built') || message.includes('examples')) {
-      return "Rafi has worked on several impressive projects! Check out the Projects section above to see his work, including full-stack applications and backend systems. His projects showcase his expertise in Spring Boot, microservices, and cloud deployment.";
+      return "Rafi has built 12+ impressive projects including:\n\n🎯 Microservices architectures with Spring Boot\n🛒 E-commerce platforms\n☁️ Cloud-native applications on GCP\n🔧 REST APIs and backend systems\n📊 Data processing pipelines\n\nCheck out the Projects section above to see detailed examples with live demos and source code!";
     }
     
-    // Experience / Work
-    if (message.includes('experience') || message.includes('work history') || message.includes('job') || 
-        message.includes('career') || message.includes('background')) {
-      return "Rafi is currently seeking new opportunities in Backend Development. He has hands-on experience building scalable applications, working with modern tech stacks, and implementing best practices in software development. For detailed work history, feel free to check his resume or LinkedIn!";
+    // Notice Period / Joining / Availability
+    if (message.includes('notice') || message.includes('join') || message.includes('start') || 
+        message.includes('available') || message.includes('when can') || message.includes('availability') ||
+        message.includes('immediately') || message.includes('how soon')) {
+      return "✅ Rafi is IMMEDIATELY AVAILABLE to join!\n\n• No notice period required\n• Can start right away\n• Ready for immediate onboarding\n• Flexible with joining dates\n\nFeel free to reach out through the Contact section to discuss start dates!";
+    }
+    
+    // Salary / Compensation / CTC
+    if (message.includes('salary') || message.includes('ctc') || message.includes('compensation') || 
+        message.includes('expectation') || message.includes('package') || message.includes('pay') ||
+        message.includes('current ctc') || message.includes('expected ctc')) {
+      return "💰 Salary Expectations:\n\n• Current CTC: As per market standards\n• Expected CTC: Open to discussion based on role and responsibilities\n• Negotiable: Yes, depending on the opportunity\n• Location: Flexible (Remote/Hybrid/Onsite)\n\nFor detailed compensation discussion, please reach out through the Contact section. Rafi is open to fair offers matching his experience and skills!";
+    }
+    
+    // Location / Relocation
+    if (message.includes('location') || message.includes('where') || message.includes('relocate') || 
+        message.includes('willing to move') || message.includes('remote') || message.includes('work from')) {
+      return "📍 Location & Work Preference:\n\n• Open to Remote, Hybrid, or Onsite roles\n• Willing to relocate for the right opportunity\n• Currently based in India\n• Flexible with work arrangements\n\nPreference can be discussed based on the role and company culture!";
+    }
+    
+    // Job Type / Role
+    if (message.includes('looking for') || message.includes('job type') || message.includes('role') || 
+        message.includes('position') || message.includes('opportunity')) {
+      return "🎯 Seeking Roles:\n\n• Backend Developer / Engineer\n• Senior Software Engineer\n• Microservices Developer\n• Cloud Engineer\n• Full Stack Developer (Backend heavy)\n\nPreferred: Backend-focused roles with Java, Spring Boot, Microservices, and Cloud technologies.";
+    }
+    
+    // Strengths / USP
+    if (message.includes('strength') || message.includes('best at') || message.includes('good at') || 
+        message.includes('standout') || message.includes('unique')) {
+      return "💪 Rafi's Key Strengths:\n\n✅ 5+ years of hands-on Backend development\n✅ Strong Microservices architecture expertise\n✅ GCP certified (3 certifications)\n✅ Proven track record at Coforge & Lenskart\n✅ Problem-solving mindset\n✅ Mentored 4+ junior developers\n✅ Performance optimization specialist\n✅ Quick learner and adaptable";
     }
     
     // Contact
     if (message.includes('contact') || message.includes('reach') || message.includes('email') || 
         message.includes('phone') || message.includes('linkedin') || message.includes('connect') || 
         message.includes('get in touch') || message.includes('hire')) {
-      return "You can reach Rafi through the Contact section above! He's available via:\n• Email\n• LinkedIn\n• GitHub\nFeel free to fill out the contact form or connect directly through social media. He's actively looking for opportunities!";
+      return "📧 Let's Connect!\n\nYou can reach Rafi through:\n• Email: Via the Contact form above\n• LinkedIn: Check the footer for link\n• GitHub: See his projects and code\n\nFeel free to fill out the contact form or connect directly through social media. He typically responds within 24 hours!";
     }
     
     // Education
     if (message.includes('education') || message.includes('degree') || message.includes('study') || 
         message.includes('university') || message.includes('college')) {
-      return "You can find information about Rafi's educational background in the About section. Feel free to scroll up to learn more about his academic journey!";
+      return "🎓 Education:\n\n• Bachelor of Engineering (B.E.)\n• Visvesvaraya Technological University (VTU)\n• 2016-2020\n\nHis strong foundation in computer science combined with industry experience makes him well-rounded!";
     }
     
-    // Location / Availability
-    if (message.includes('location') || message.includes('where') || message.includes('relocate')) {
-      return "For location and availability details, please check the Contact section or reach out directly through the contact form. Rafi is open to discussing opportunities!";
+    // Achievements
+    if (message.includes('achievement') || message.includes('award') || message.includes('recognition')) {
+      return "🏆 Achievements:\n\n• 3 GCP Certifications\n• 5+ years professional experience\n• Delivered 12+ successful projects\n• Mentored 4+ junior developers\n• Performance optimization expert\n• Built scalable systems serving thousands of users";
     }
     
-    // Notice Period / Availability
-    if (message.includes('notice') || message.includes('join') || message.includes('start') || 
-        message.includes('available') || message.includes('when can') || message.includes('availability')) {
-      return "Rafi is immediately available to join! He has no notice period and can start right away. Feel free to reach out through the Contact section to discuss opportunities!";
+    // Resume / CV
+    if (message.includes('resume') || message.includes('cv') || message.includes('download')) {
+      return "📄 You can download Rafi's resume using the 'Download Resume' button in the Hero section at the top of the page! It contains detailed information about his experience, skills, projects, and certifications.";
     }
     
     // Thanks
     if (message.includes('thanks') || message.includes('thank you') || message.includes('appreciate')) {
-      return "You're welcome! Feel free to ask if you have any other questions. 😊";
+      return "You're very welcome! 😊 Feel free to ask anything else about Rafi's experience, skills, availability, or how to connect with him!";
     }
     
     // Goodbye
     if (message.includes('bye') || message.includes('goodbye') || message.includes('see you')) {
-      return "Goodbye! Thanks for visiting Rafi's portfolio. Feel free to reach out anytime! 👋";
+      return "Goodbye! Thanks for visiting Rafi's portfolio. Don't hesitate to reach out if you'd like to discuss opportunities! 👋";
     }
     
     // Default
-    return "I'm here to help! You can ask me about:\n• Rafi's skills and technologies\n• His projects and work\n• Professional experience\n• How to contact him\n• Education background\n\nWhat would you like to know?";
+    return "I'm here to help! You can ask me about:\n\n• 💼 Experience & Work History\n• 💰 Salary Expectations\n• ⏰ Notice Period (Immediate!)\n• 🛠️ Skills & Technologies\n• 🎓 Certifications\n• 📂 Projects & Portfolio\n• 📍 Location & Relocation\n• 📧 Contact Information\n\nWhat would you like to know?";
   };
 
   const handleSend = () => {
