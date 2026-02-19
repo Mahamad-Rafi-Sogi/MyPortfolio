@@ -3,9 +3,16 @@ import { ArrowRight } from 'lucide-react';
 import profileImage from '/src/RafiProfile2.jpeg';
 import hoverImage from '/src/RafiProfile.jpeg';
 import '../styles/animations.css';
+import { useTypingEffect } from '../hooks/useTypingEffect';
 
 export function Hero() {
   const [image, setImage] = useState<string>(profileImage);
+  const typingText = useTypingEffect([
+    'Backend Developer',
+    'Cloud Architect', 
+    'Problem Solver',
+    'GCP Certified Professional'
+  ], 100, 50, 2000);
 
   return (
     <section
@@ -28,7 +35,10 @@ export function Hero() {
               <br />
               <span className="text-blue-600 dark:text-blue-400">Mahamad Rafi Sogi</span>
               <br />
-              Backend Developer
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                {typingText}
+                <span className="animate-pulse">|</span>
+              </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 text-center md:text-left transition-colors duration-300">
               I craft robust and scalable backend systems with 5+ years of experience, ensuring seamless

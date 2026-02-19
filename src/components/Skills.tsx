@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, Database, Cloud, Server, Wrench, GitBranch } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const skillCategories = [
   {
@@ -34,9 +35,25 @@ const skillCategories = [
   }
 ];
 
+const expertiseSkills = [
+  { name: 'Java & Spring Boot', level: 95 },
+  { name: 'Microservices Architecture', level: 90 },
+  { name: 'Google Cloud Platform', level: 88 },
+  { name: 'SQL & Database Design', level: 92 },
+  { name: 'Docker & Kubernetes', level: 85 },
+  { name: 'RESTful API Design', level: 93 }
+];
+
 export function Skills() {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-darkBg transition-colors duration-300">
+    <section 
+      id="skills" 
+      ref={ref}
+      className={`py-20 bg-white dark:bg-darkBg transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-darkText mb-4">
@@ -53,7 +70,10 @@ export function Skills() {
             return (
               <div
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className={`bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-500 hover:scale-105 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
@@ -76,6 +96,44 @@ export function Skills() {
               </div>
             );
           })}
+        </div>
+
+        {/* Expertise Levels */}
+        <div className="mt-12 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-xl border border-blue-200 dark:border-blue-800">
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-darkText mb-6 text-center">
+            Core Expertise Levels
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            {expertiseSkills.map((skill, index) => (
+              <div 
+                key={index}
+                className={`transition-all duration-700 ${
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="flex justify-between mb-2">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {skill.name}
+                  </span>
+                  <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
+                    {skill.level}%
+                  </span>
+                </div>
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+                  <div
+                    className="bg-gradient-to-r from-blue-500 to-purple-500 h-full rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
+                    style={{ 
+                      width: isVisible ? `${skill.level}%` : '0%',
+                      transitionDelay: `${index * 100}ms`
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Design Patterns */}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const projects = [
   {
@@ -134,18 +135,47 @@ const projects = [
 
 export function Projects() {
 const [visibleCount, setVisibleCount] = useState(9);
+const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
 const loadMore = () => {
     setVisibleCount(prev => Math.min(prev + 3, projects.length));
 };
 return (
-    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <section 
+      ref={ref} 
+      id="projects" 
+      className={`py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-900 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 dark:text-darkText">Featured Projects</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {projects.slice(0, visibleCount).map((project, index) => (
-            <div key={index} className="bg-white dark:bg-darkCard rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 focus-within:shadow-xl">
-              <img src={project.image} alt={project.title} className="w-full h-40 sm:h-48 object-cover" />
+            <div 
+              key={index} 
+              className="bg-white dark:bg-darkCard rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl group perspective-1000"
+              style={{
+                transform: isVisible ? 'none' : 'translateY(50px)',
+                opacity: isVisible ? 1 : 0,
+                transitionDelay: `${index * 100}ms`
+              }}
+              onMouseMove={(e) => {
+                const card = e.currentTarget;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+              }}
+            >
+              <img src={project.image} alt={project.title} className="w-full h-40 sm:h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
               <div className="p-4 sm:p-6">
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900 dark:text-darkText">{project.title}</h3>
                 <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 line-clamp-4 sm:line-clamp-6">{project.description}</p>
