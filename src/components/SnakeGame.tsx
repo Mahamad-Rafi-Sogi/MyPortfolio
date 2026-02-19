@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Gamepad2, X, RotateCcw, Trophy } from 'lucide-react';
+import { Gamepad2, X, RotateCcw, Trophy, ChevronUp, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';
 type Position = { x: number; y: number };
@@ -23,6 +23,7 @@ export function SnakeGame() {
   const [highScore, setHighScore] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const directionRef = useRef<Direction>(INITIAL_DIRECTION);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const savedHighScore = localStorage.getItem('snakeHighScore');
@@ -189,7 +190,58 @@ export function SnakeGame() {
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [isPlaying, gameOver]);
+// Touch/Swipe controls for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  };
 
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartRef.current || !isPlaying || gameOver) return;
+
+    const touch = e.changedTouches[0];
+    const deltaX = touch.clientX - touchStartRef.current.x;
+    const deltaY = touch.clientY - touchStartRef.current.y;
+    const currentDirection = directionRef.current;
+
+    // Determine swipe direction (minimum 30px swipe)
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) {
+      if (deltaX > 0 && currentDirection !== 'LEFT') {
+        directionRef.current = 'RIGHT';
+        setDirection('RIGHT');
+      } else if (deltaX < 0 && currentDirection !== 'RIGHT') {
+        directionRef.current = 'LEFT';
+        setDirection('LEFT');
+      }
+    } else if (Math.abs(deltaY) > 30) {
+      if (deltaY > 0 && currentDirection !== 'UP') {
+        directionRef.current = 'DOWN';
+        setDirection('DOWN');
+      } else if (deltaY < 0 && currentDirection !== 'DOWN') {
+        directionRef.current = 'UP';
+        setDirection('UP');
+      }
+    }
+
+    touchStartRef.current = null;
+  };
+
+  const handleDirectionClick = (newDirection: Direction) => {
+    if (!isPlaying || gameOver) return;
+    const currentDirection = directionRef.current;
+
+    if (
+      (newDirection === 'UP' && currentDirection !== 'DOWN') ||
+      (newDirection === 'DOWN' && currentDirection !== 'UP') ||
+      (newDirection === 'LEFT' && currentDirection !== 'RIGHT') ||
+      (newDirection === 'RIGHT' && currentDirection !== 'LEFT')
+    ) {
+      directionRef.current = newDirection;
+      setDirection(newDirection);
+    }
+  };
+
+  
   const startGame = () => {
     resetGame();
     setIsPlaying(true);
@@ -216,8 +268,9 @@ export function SnakeGame() {
             <div className="flex items-center gap-3">
               <Gamepad2 size={24} />
               <div>
-                <h3 className="font-semibold">Snake Game</h3>
-                <p className="text-xs text-green-100">Use Arrow Keys or WASD</p>
+                <h3 className="font-semibold text-sm sm:text-base">Snake Game</h3>
+                <p className="text-xs text-green-100 hidden sm:block">Arrow Keys / WASD / Swipe</p>
+                <p className="text-xs text-green-100 sm:hidden">Swipe or use buttons</p>
               </div>
             </div>
             <button
@@ -254,10 +307,12 @@ export function SnakeGame() {
           </div>
 
           {/* Game Board */}
-          <div className="p-4 bg-gray-50 dark:bg-gray-900">
+          <div className="p-2 sm:p-4 bg-gray-50 dark:bg-gray-900">
             <div
-              className="relative bg-gray-200 dark:bg-gray-800 border-4 border-gray-300 dark:border-gray-700 mx-auto"
+              className="relative bg-gray-200 dark:bg-gray-800 border-4 border-gray-300 dark:border-gray-700 mx-auto touch-none"
               style={{ width: GRID_SIZE * CELL_SIZE, height: GRID_SIZE * CELL_SIZE }}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
               {/* Snake */}
               {snake.map((segment, index) => (
@@ -341,6 +396,42 @@ export function SnakeGame() {
                       Start Game
                     </button>
                   </div>
+
+            {/* Mobile Controls */}
+            <div className="sm:hidden mt-4 pb-2">
+              <div className="flex flex-col items-center gap-1">
+                <button
+                  onClick={() => handleDirectionClick('UP')}
+                  className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation"
+                  aria-label="Move up"
+                >
+                  <ChevronUp size={24} />
+                </button>
+                <div className="flex gap-1">
+                  <button
+                    onClick={() => handleDirectionClick('LEFT')}
+                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation"
+                    aria-label="Move left"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button
+                    onClick={() => handleDirectionClick('DOWN')}
+                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation"
+                    aria-label="Move down"
+                  >
+                    <ChevronDown size={24} />
+                  </button>
+                  <button
+                    onClick={() => handleDirectionClick('RIGHT')}
+                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation"
+                    aria-label="Move right"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </div>
+              </div>
+            </div>
                 </div>
               )}
             </div>
