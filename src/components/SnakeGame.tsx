@@ -253,24 +253,24 @@ export function SnakeGame() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 left-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 z-50"
+          className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-full p-3 sm:p-4 shadow-lg transition-all duration-300 hover:scale-110 z-50"
           aria-label="Play Snake Game"
         >
-          <Gamepad2 size={28} />
+          <Gamepad2 size={24} className="sm:w-7 sm:h-7" />
         </button>
       )}
 
       {/* Game Window */}
       {isOpen && (
-        <div className="fixed bottom-6 left-6 bg-white dark:bg-gray-800 rounded-lg shadow-2xl transition-all duration-300 z-50 w-[440px]">
+        <div className="fixed bottom-2 left-2 right-2 sm:bottom-6 sm:left-6 sm:right-auto bg-white dark:bg-gray-800 rounded-lg shadow-2xl transition-all duration-300 z-50 sm:w-[440px] max-h-[95vh] overflow-y-auto">
           {/* Header */}
-          <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-4 rounded-t-lg flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <Gamepad2 size={24} />
+          <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-3 sm:p-4 rounded-t-lg flex justify-between items-center">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Gamepad2 size={20} className="sm:w-6 sm:h-6" />
               <div>
                 <h3 className="font-semibold text-sm sm:text-base">Snake Game</h3>
                 <p className="text-xs text-green-100 hidden sm:block">Arrow Keys / WASD / Swipe</p>
-                <p className="text-xs text-green-100 sm:hidden">Swipe or use buttons</p>
+                <p className="text-xs text-green-100 sm:hidden">Swipe or tap buttons</p>
               </div>
             </div>
             <button
@@ -283,33 +283,33 @@ export function SnakeGame() {
           </div>
 
           {/* Score Board */}
-          <div className="bg-gray-100 dark:bg-gray-700 p-3 flex justify-between items-center border-b border-gray-200 dark:border-gray-600">
-            <div className="flex gap-6">
+          <div className="bg-gray-100 dark:bg-gray-700 p-2 sm:p-3 flex justify-between items-center border-b border-gray-200 dark:border-gray-600">
+            <div className="flex gap-3 sm:gap-6">
               <div>
                 <p className="text-xs text-gray-600 dark:text-gray-400">Score</p>
-                <p className="text-xl font-bold text-green-600 dark:text-green-400">{score}</p>
+                <p className="text-lg sm:text-xl font-bold text-green-600 dark:text-green-400">{score}</p>
               </div>
               <div className="flex items-center gap-1">
-                <Trophy size={16} className="text-yellow-500" />
+                <Trophy size={14} className="sm:w-4 sm:h-4 text-yellow-500" />
                 <div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">High Score</p>
-                  <p className="text-xl font-bold text-yellow-600 dark:text-yellow-400">{highScore}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">Best</p>
+                  <p className="text-lg sm:text-xl font-bold text-yellow-600 dark:text-yellow-400">{highScore}</p>
                 </div>
               </div>
             </div>
             <button
               onClick={startGame}
-              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              className="flex items-center gap-1 sm:gap-2 bg-green-600 hover:bg-green-700 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors"
             >
-              <RotateCcw size={16} />
+              <RotateCcw size={14} className="sm:w-4 sm:h-4" />
               {isPlaying ? 'Restart' : 'Start'}
             </button>
           </div>
 
           {/* Game Board */}
-          <div className="p-2 sm:p-4 bg-gray-50 dark:bg-gray-900">
+          <div className="p-2 sm:p-4 bg-gray-50 dark:bg-gray-900 flex flex-col items-center">
             <div
-              className="relative bg-gray-200 dark:bg-gray-800 border-4 border-gray-300 dark:border-gray-700 mx-auto touch-none"
+              className="relative bg-gray-200 dark:bg-gray-800 border-2 sm:border-4 border-gray-300 dark:border-gray-700 touch-none"
               style={{ width: GRID_SIZE * CELL_SIZE, height: GRID_SIZE * CELL_SIZE }}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
@@ -396,44 +396,44 @@ export function SnakeGame() {
                       Start Game
                     </button>
                   </div>
+                </div>
+              )}
+            </div>
 
             {/* Mobile Controls */}
-            <div className="sm:hidden mt-4 pb-2">
-              <div className="flex flex-col items-center gap-1">
+            <div className="block sm:hidden mt-3 w-full">
+              <div className="flex flex-col items-center gap-2">
                 <button
                   onClick={() => handleDirectionClick('UP')}
-                  className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation"
+                  className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation shadow-md"
                   aria-label="Move up"
                 >
-                  <ChevronUp size={24} />
+                  <ChevronUp size={28} strokeWidth={3} />
                 </button>
-                <div className="flex gap-1">
+                <div className="flex gap-2 justify-center">
                   <button
                     onClick={() => handleDirectionClick('LEFT')}
-                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation"
+                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation shadow-md"
                     aria-label="Move left"
                   >
-                    <ChevronLeft size={24} />
+                    <ChevronLeft size={28} strokeWidth={3} />
                   </button>
                   <button
                     onClick={() => handleDirectionClick('DOWN')}
-                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation"
+                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation shadow-md"
                     aria-label="Move down"
                   >
-                    <ChevronDown size={24} />
+                    <ChevronDown size={28} strokeWidth={3} />
                   </button>
                   <button
                     onClick={() => handleDirectionClick('RIGHT')}
-                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation"
+                    className="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg p-3 transition-colors touch-manipulation shadow-md"
                     aria-label="Move right"
                   >
-                    <ChevronRight size={24} />
+                    <ChevronRight size={28} strokeWidth={3} />
                   </button>
                 </div>
               </div>
-            </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
