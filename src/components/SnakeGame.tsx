@@ -15,6 +15,7 @@ export function SnakeGame() {
   const [snake, setSnake] = useState<Position[]>(INITIAL_SNAKE);
   const [food, setFood] = useState<Position>({ x: 15, y: 15 });
   const [bigFood, setBigFood] = useState<Position | null>(null);
+  const [bigFoodValue, setBigFoodValue] = useState(5);
   const [direction, setDirection] = useState<Direction>(INITIAL_DIRECTION);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
@@ -45,6 +46,7 @@ export function SnakeGame() {
     setSnake(INITIAL_SNAKE);
     setFood({ x: 15, y: 15 });
     setBigFood(null);
+    setBigFoodValue(5);
     setDirection(INITIAL_DIRECTION);
     directionRef.current = INITIAL_DIRECTION;
     setGameOver(false);
@@ -106,6 +108,7 @@ export function SnakeGame() {
           if (newCount === 5) {
             // Generate big food after 5 regular foods
             setBigFood(generateFood(newSnake));
+            setBigFoodValue(5);
             return 0;
           }
           return newCount;
@@ -117,7 +120,7 @@ export function SnakeGame() {
       // Check big food collision
       if (bigFood && newHead.x === bigFood.x && newHead.y === bigFood.y) {
         setScore(prev => {
-          const newScore = prev + 5;
+          const newScore = prev + bigFoodValue;
           if (newScore > highScore) {
             setHighScore(newScore);
             localStorage.setItem('snakeHighScore', newScore.toString());
@@ -125,16 +128,17 @@ export function SnakeGame() {
           return newScore;
         });
         setBigFood(null);
-        // Grow the snake by 2 extra segments for big food
-        return [newHead, ...prevSnake, prevSnake[prevSnake.length - 1], prevSnake[prevSnake.length - 1]]
+        setBigFoodValue(5);
         setFood(generateFood(newSnake));
+        // Don't grow the snake for big food, just remove the tail
+        newSnake.pop();
         return newSnake;
       }
 
       newSnake.pop();
       return newSnake;
     });
-  }, [gameOver, isPlaying, food, highScore, generateFood]);
+  }, [gameOver, isPlaying, food, bigFood, bigFoodValue, highScore, generateFood]);
 
   useEffect(() => {
     if (!isPlaying || gameOver) return;
@@ -142,6 +146,23 @@ export function SnakeGame() {
     const interval = setInterval(moveSnake, GAME_SPEED);
     return () => clearInterval(interval);
   }, [isPlaying, gameOver, moveSnake]);
+
+  // Decrease bonus food value over time
+  useEffect(() => {
+    if (!isPlaying || gameOver || !bigFood || bigFoodValue <= 1) return;
+
+    const decreaseInterval = setInterval(() => {
+      setBigFoodValue(prev => {
+        if (prev <= 1) {
+          setBigFood(null);
+          return 5;
+        }
+        return prev - 1;
+      });
+    }, 2000); // Decrease every 2 seconds
+
+    return () => clearInterval(decreaseInterval);
+  }, [isPlaying, gameOver, bigFood, bigFoodValue]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -286,7 +307,7 @@ export function SnakeGame() {
                   }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-xs">
-                    +5
+                    +{bigFoodValue}
                   </div>
                 </div>
               )}
