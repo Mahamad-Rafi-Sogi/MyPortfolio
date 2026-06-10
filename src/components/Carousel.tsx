@@ -110,7 +110,7 @@ export const Carousel: React.FC = () => {
         </Slider>
       </div>
 
-      <style jsx global>{`
+      <style>{`
         /* Custom styles for slider dots and arrows in dark mode */
         .slick-dots li button:before {
           color: #718096;

@@ -14,7 +14,6 @@ const KONAMI_CODE = [
 ];
 
 export function KonamiCode() {
-  const [activated, setActivated] = useState(false);
   const [keySequence, setKeySequence] = useState<string[]>([]);
 
   useEffect(() => {
@@ -23,7 +22,6 @@ export function KonamiCode() {
       setKeySequence(newSequence);
 
       if (JSON.stringify(newSequence) === JSON.stringify(KONAMI_CODE)) {
-        setActivated(true);
         triggerEasterEgg();
         setKeySequence([]);
       }
@@ -31,6 +29,7 @@ export function KonamiCode() {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keySequence]);
 
   const triggerEasterEgg = () => {

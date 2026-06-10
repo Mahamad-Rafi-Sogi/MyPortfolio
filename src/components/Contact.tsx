@@ -1,18 +1,63 @@
-import React from 'react';
-import { Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import React, { useState } from 'react';
+import { Instagram, Mail, MapPin, Phone, Twitter, Copy, Check, Send, Loader2 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+
+const EMAIL = 'mrafisogi@gmail.com';
+// To deliver messages straight to your inbox, create a free form at https://formspree.io
+// and paste its endpoint below (e.g. 'https://formspree.io/f/xxxxxxx').
+// While this is empty, the form gracefully falls back to opening the visitor's email client.
+const FORMSPREE_ENDPOINT = '';
+
+type SubmitStatus = 'idle' | 'sending' | 'success' | 'error';
 
 export function Contact() {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.15 });
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<SubmitStatus>('idle');
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
-    const mailtoLink = `mailto:mrafisogi@gmail.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+
+    if (FORMSPREE_ENDPOINT) {
+      setStatus('sending');
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: formData,
+        });
+        if (res.ok) {
+          setStatus('success');
+          form.reset();
+          setTimeout(() => setStatus('idle'), 5000);
+        } else {
+          setStatus('error');
+        }
+      } catch {
+        setStatus('error');
+      }
+      return;
+    }
+
+    // Fallback: open the visitor's email client with a prefilled message.
+    const mailtoLink = `mailto:${EMAIL}?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    )}`;
     window.location.href = mailtoLink;
   };
 
@@ -28,8 +73,24 @@ export function Contact() {
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-darkText">Contact Information</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                <span className="text-gray-800 dark:text-gray-200">mrafisogi@gmail.com</span>
+                <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0" />
+                <span className="text-gray-800 dark:text-gray-200">{EMAIL}</span>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  aria-label="Copy email address"
+                  className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-green-500" /> Copied
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5" /> Copy
+                    </>
+                  )}
+                </button>
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
@@ -91,10 +152,33 @@ export function Contact() {
             </div>
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium hover:shadow-lg transform hover:scale-[1.02]"
+              disabled={status === 'sending'}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
-              Send Message
+              {status === 'sending' ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" /> Sending...
+                </>
+              ) : (
+                <>
+                  Send Message <Send className="w-4 h-4" />
+                </>
+              )}
             </button>
+
+            {status === 'success' && (
+              <p
+                role="status"
+                className="flex items-center gap-2 text-sm text-green-600 dark:text-green-400"
+              >
+                <Check className="w-4 h-4" /> Thanks! Your message has been sent.
+              </p>
+            )}
+            {status === 'error' && (
+              <p role="alert" className="text-sm text-red-600 dark:text-red-400">
+                Something went wrong. Please email me directly at {EMAIL}.
+              </p>
+            )}
           </form>
         </div>
       </div>

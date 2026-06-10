@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
@@ -8,7 +8,6 @@ import { Certifications } from './components/Certifications';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { Carousel } from "./components/Carousel";
 import { ChatAssistant } from './components/ChatAssistant';
 import { BackToTop } from './components/BackToTop';
 import { SnakeGame } from './components/SnakeGame';
@@ -16,6 +15,10 @@ import { KonamiCode } from './components/KonamiCode';
 import { LoadingScreen } from './components/LoadingScreen';
 import { SocialProof } from './components/SocialProof';
 import { ScrollProgress } from './components/ScrollProgress';
+
+const Carousel = React.lazy(() =>
+  import('./components/Carousel').then((m) => ({ default: m.Carousel }))
+);
 
 function App() {
   // Initialize theme from localStorage or system preference on mount
@@ -43,7 +46,13 @@ function App() {
         <Experience />
         <Certifications />
         <Projects />
-        <Carousel />
+        <Suspense
+          fallback={
+            <div className="py-20 text-center text-gray-400">Loading…</div>
+          }
+        >
+          <Carousel />
+        </Suspense>
         <Contact />
       </main>
       <Footer />

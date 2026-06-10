@@ -16,10 +16,10 @@ export function SnakeGame() {
   const [food, setFood] = useState<Position>({ x: 15, y: 15 });
   const [bigFood, setBigFood] = useState<Position | null>(null);
   const [bigFoodValue, setBigFoodValue] = useState(5);
-  const [direction, setDirection] = useState<Direction>(INITIAL_DIRECTION);
+  const [, setDirection] = useState<Direction>(INITIAL_DIRECTION);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
-  const [foodCount, setFoodCount] = useState(0);
+  const [, setFoodCount] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const directionRef = useRef<Direction>(INITIAL_DIRECTION);
