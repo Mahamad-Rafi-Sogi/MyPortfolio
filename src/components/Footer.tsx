@@ -16,23 +16,28 @@ export function Footer() {
             <p className="text-gray-400 mt-1">Backend Developer • Java • Spring Boot • GCP</p>
           </div>
           <div className="flex gap-6">
-            <a href="https://github.com/Mahamad-Rafi-Sogi" target="_blank" rel="noopener noreferrer" 
+            <a href="https://github.com/Mahamad-Rafi-Sogi" target="_blank" rel="noopener noreferrer"
+               aria-label="GitHub profile"
                className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Github className="w-6 h-6" />
             </a>
             <a href="https://www.linkedin.com/in/mdrafisogi/" target="_blank" rel="noopener noreferrer"
+               aria-label="LinkedIn profile"
                className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Linkedin className="w-6 h-6" />
             </a>
-            <a href="https://www.instagram.com/al_buraq_whitebeast/"
+            <a href="https://www.instagram.com/al_buraq_whitebeast/" target="_blank" rel="noopener noreferrer"
+               aria-label="Instagram profile"
                className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Instagram className="w-6 h-6" />
             </a>
-            <a href="https://x.com/MdRafiSogi"
+            <a href="https://x.com/MdRafiSogi" target="_blank" rel="noopener noreferrer"
+               aria-label="X (Twitter) profile"
                className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Twitter className="w-6 h-6" />
             </a>
-            <a href="mrafisogi@gmail.com"
+            <a href="mailto:mrafisogi@gmail.com"
+               aria-label="Send an email"
                className="text-gray-400 hover:text-white transition-colors hover:scale-125">
               <Mail className="w-6 h-6" />
             </a>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Instagram, Linkedin, Mail, Twitter, Menu, X } from 'lucide-react';
+import { Github, Instagram, Linkedin, Mail, Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 
@@ -67,6 +67,7 @@ export function Header() {
               href="https://github.com/Mahamad-Rafi-Sogi" 
               target="_blank" 
               rel="noopener noreferrer" 
+              aria-label="GitHub profile"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all"
             >
               <Github className="w-5 h-5" />
@@ -75,6 +76,7 @@ export function Header() {
               href="https://www.linkedin.com/in/mdrafisogi/" 
               target="_blank" 
               rel="noopener noreferrer" 
+              aria-label="LinkedIn profile"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all"
             >
               <Linkedin className="w-5 h-5" />
@@ -83,12 +85,14 @@ export function Header() {
               href="https://www.instagram.com/al_buraq_whitebeast/"
               target="_blank" 
               rel="noopener noreferrer" 
+              aria-label="Instagram profile"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all"
             >
               <Instagram className="w-5 h-5" />
             </a>
             <a 
               href="mailto:mrafisogi@gmail.com"
+              aria-label="Send an email"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all"
             >
               <Mail className="w-5 h-5" />
@@ -116,16 +120,16 @@ export function Header() {
                 </a>
               ))}
               <div className="flex items-center gap-4 pt-2">
-                <a href="https://github.com/Mahamad-Rafi-Sogi" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                <a href="https://github.com/Mahamad-Rafi-Sogi" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="https://www.linkedin.com/in/mdrafisogi/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                <a href="https://www.linkedin.com/in/mdrafisogi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="https://www.instagram.com/al_buraq_whitebeast/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                <a href="https://www.instagram.com/al_buraq_whitebeast/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="mailto:mrafisogi@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                <a href="mailto:mrafisogi@gmail.com" aria-label="Send an email" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
