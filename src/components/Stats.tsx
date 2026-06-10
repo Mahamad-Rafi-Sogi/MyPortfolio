@@ -96,9 +96,10 @@ export function Stats() {
             return (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 text-center"
+                style={{ animationDelay: `${index * 120}ms` }}
+                className={`card-glow bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/40 text-center ${isVisible ? 'will-reveal animate-fade-up' : ''}`}
               >
-                <div className={`inline-flex p-4 bg-gradient-to-br ${stat.color} rounded-full mb-4`}>
+                <div className={`inline-flex p-4 bg-gradient-to-br ${stat.color} rounded-full mb-4 animate-float`}>
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-4xl font-bold text-white mb-2">

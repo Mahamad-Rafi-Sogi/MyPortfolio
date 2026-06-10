@@ -1,5 +1,6 @@
 import React from 'react';
 import { Briefcase, Calendar, MapPin, Award } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const experiences = [
   {
@@ -38,10 +39,14 @@ const experiences = [
 ];
 
 export function Experience() {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.15 });
   return (
     <section id="experience" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-darkBg transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
+        <div
+          ref={ref}
+          className={`text-center mb-12 ${isVisible ? 'will-reveal animate-fade-up' : 'opacity-0'}`}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-darkText mb-4">
             Professional Experience
           </h2>

@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
 import { Github, Instagram, Linkedin, Mail, Twitter, Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { useScrollSpy } from '../hooks/useScrollSpy';
+
+const navLinks = [
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
+
+const sectionIds = navLinks.map((l) => l.id);
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const activeId = useScrollSpy(sectionIds);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,11 +46,19 @@ export function Header() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">About</a>
-            <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Skills</a>
-            <a href="#experience" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Experience</a>
-            <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Projects</a>
-            <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-125 transition-all">Contact</a>
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className={`relative font-medium transition-all hover:scale-110 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:rounded-full after:bg-gradient-to-r after:from-blue-500 after:to-purple-500 after:transition-all after:duration-300 ${
+                  activeId === link.id
+                    ? 'text-blue-600 dark:text-blue-400 after:w-full'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white after:w-0 hover:after:w-full'
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
           
           {/* Desktop Social Icons and Theme Toggle */}
@@ -81,11 +101,20 @@ export function Header() {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
             <div className="flex flex-col gap-4">
-              <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">About</a>
-              <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Skills</a>
-              <a href="#experience" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Experience</a>
-              <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Projects</a>
-              <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Contact</a>
+              {navLinks.map((link) => (
+                <a
+                  key={link.id}
+                  href={`#${link.id}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`border-l-2 pl-3 transition-colors ${
+                    activeId === link.id
+                      ? 'border-blue-500 text-blue-600 dark:text-blue-400 font-semibold'
+                      : 'border-transparent text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
               <div className="flex items-center gap-4 pt-2">
                 <a href="https://github.com/Mahamad-Rafi-Sogi" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
                   <Github className="w-5 h-5" />

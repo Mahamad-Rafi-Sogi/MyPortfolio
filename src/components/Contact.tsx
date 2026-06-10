@@ -1,7 +1,9 @@
 import React from 'react';
 import { Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export function Contact() {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.15 });
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -17,7 +19,10 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-darkBg transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-darkText">Get In Touch</h2>
+        <h2
+          ref={ref}
+          className={`text-3xl font-bold text-center mb-12 text-gray-900 dark:text-darkText ${isVisible ? 'will-reveal animate-fade-up' : 'opacity-0'}`}
+        >Get In Touch</h2>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-darkText">Contact Information</h3>

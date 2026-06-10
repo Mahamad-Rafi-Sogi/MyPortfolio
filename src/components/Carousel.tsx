@@ -87,11 +87,14 @@ export const Carousel: React.FC = () => {
                     title={slide.title}
                   ></iframe>
                 ) : (
-                  <img
-                    src={slide.source}
-                    alt={slide.title}
-                    className="w-full h-[600px] object-cover"
-                  />
+                  <div className="flex items-center justify-center w-full h-[600px] bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
+                    <img
+                      src={slide.source}
+                      alt={slide.title}
+                      loading="lazy"
+                      className="max-w-full max-h-full w-auto h-auto object-contain"
+                    />
+                  </div>
                 )}
                 <div className="p-6">
                   <h3 className="text-center text-lg font-semibold text-gray-900 dark:text-darkText">

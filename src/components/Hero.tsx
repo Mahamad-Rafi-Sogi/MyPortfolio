@@ -17,8 +17,15 @@ export function Hero() {
   return (
     <section
       id="about"
-      className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-darkBg transition-colors duration-300"
+      className="relative overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-darkBg transition-colors duration-300"
     >
+      {/* Animated gradient blobs */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute -top-24 -left-24 w-72 h-72 sm:w-96 sm:h-96 bg-blue-400/30 dark:bg-blue-600/20 rounded-full blur-3xl animate-blob" />
+        <div className="absolute top-1/3 -right-24 w-72 h-72 sm:w-96 sm:h-96 bg-purple-400/30 dark:bg-purple-600/20 rounded-full blur-3xl animate-blob delay-300" />
+        <div className="absolute -bottom-24 left-1/3 w-72 h-72 sm:w-96 sm:h-96 bg-cyan-400/20 dark:bg-cyan-600/20 rounded-full blur-3xl animate-blob delay-500" />
+      </div>
+
       {/* Announcement Banner */}
       <div className="overflow-hidden relative py-3 bg-gradient-to-r from-blue-50 via-purple-50 to-blue-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 border-b-2 border-blue-200 dark:border-blue-900 transition-colors duration-300">
         <p className="text-blue-700 dark:text-blue-300 font-semibold text-sm sm:text-base md:text-lg inline-block whitespace-nowrap pl-full animate-scroll-mobile sm:animate-scroll">
@@ -26,21 +33,21 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Left Section */}
           <div className="flex-1 space-y-4 sm:space-y-6 w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 dark:text-darkText text-center md:text-left transition-colors duration-300">
+            <h1 className="will-reveal animate-fade-up text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 dark:text-darkText text-center md:text-left transition-colors duration-300">
               Hi, I'm
               <br />
               <span className="text-blue-600 dark:text-blue-400">Mahamad Rafi Sogi</span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              <span className="animate-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400">
                 {typingText}
                 <span className="animate-pulse">|</span>
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 text-center md:text-left transition-colors duration-300">
+            <p className="will-reveal animate-fade-up delay-200 text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 text-center md:text-left transition-colors duration-300">
               I craft robust and scalable backend systems with 5+ years of experience, ensuring seamless
               functionality, reliability, and performance using modern
               technologies and best practices.
@@ -57,11 +64,11 @@ export function Hero() {
                 media!
               </strong>
             </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
+            <div className="will-reveal animate-fade-up delay-400 flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
               <a
                 href="/Mahamad_Rafi_Sogi_Resume.pdf"
                 download="Mahamad_Rafi_Sogi_Resume.pdf"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-600 text-white text-sm sm:text-base rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 min-w-[140px] font-medium"
+                className="btn-shine inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-600 text-white text-sm sm:text-base rounded-lg hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-300 hover:scale-105 min-w-[140px] font-medium"
               >
                 Download Resume
                 <ArrowRight className="w-4 h-4" />
@@ -70,7 +77,7 @@ export function Hero() {
                 href="https://razorpay.me/@mahamadrafisogi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 dark:from-purple-700 dark:to-purple-600 text-white text-sm sm:text-base rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 min-w-[140px] font-medium"
+                className="btn-shine inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 dark:from-purple-700 dark:to-purple-600 text-white text-sm sm:text-base rounded-lg hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300 hover:scale-105 min-w-[140px] font-medium"
               >
                 Test Payment
                 <ArrowRight className="w-4 h-4" />
@@ -80,13 +87,17 @@ export function Hero() {
 
           {/* Right Section */}
           <div className="flex-1 mt-8 md:mt-0">
-            <img
-              src={image}
-              alt="Profile"
-              className="rounded-full w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 object-cover mx-auto border-4 sm:border-6 md:border-8 border-white dark:border-gray-800 shadow-xl transform transition-all duration-300 md:hover:scale-125"
-              onMouseEnter={() => setImage(hoverImage)} 
-              onMouseLeave={() => setImage(profileImage)} 
-            />
+            <div className="will-reveal animate-scale-in delay-300 relative mx-auto w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72">
+              {/* Rotating glow ring */}
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-400 opacity-60 blur-md animate-spin-slow" aria-hidden="true" />
+              <img
+                src={image}
+                alt="Profile"
+                className="relative rounded-full w-full h-full object-cover border-4 sm:border-6 md:border-8 border-white dark:border-gray-800 shadow-xl animate-float transition-transform duration-300 md:hover:scale-110"
+                onMouseEnter={() => setImage(hoverImage)}
+                onMouseLeave={() => setImage(profileImage)}
+              />
+            </div>
           </div>
         </div>
       </div>

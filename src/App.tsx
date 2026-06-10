@@ -15,6 +15,7 @@ import { SnakeGame } from './components/SnakeGame';
 import { KonamiCode } from './components/KonamiCode';
 import { LoadingScreen } from './components/LoadingScreen';
 import { SocialProof } from './components/SocialProof';
+import { ScrollProgress } from './components/ScrollProgress';
 
 function App() {
   // Initialize theme from localStorage or system preference on mount
@@ -32,6 +33,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white dark:bg-darkBg dark:text-darkText transition-colors duration-200">
       <LoadingScreen />
+      <ScrollProgress />
       <Header />
       <main>
         <Hero />
