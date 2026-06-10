@@ -27,7 +27,7 @@ export function Hero() {
       </div>
 
       {/* Announcement Banner */}
-      <div className="overflow-hidden relative py-3 bg-gradient-to-r from-blue-50 via-purple-50 to-blue-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 border-b-2 border-blue-200 dark:border-blue-900 transition-colors duration-300">
+      <div className="overflow-hidden relative py-2.5">
         <p className="text-blue-700 dark:text-blue-300 font-semibold text-sm sm:text-base md:text-lg inline-block whitespace-nowrap pl-full animate-scroll-mobile sm:animate-scroll">
           ✨ Open to Backend Development Opportunities • Immediate Availability • Let's Connect! ✨
         </p>
